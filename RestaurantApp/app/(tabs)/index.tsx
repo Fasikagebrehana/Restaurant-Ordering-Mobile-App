@@ -1,18 +1,12 @@
-// import { Image } from 'expo-image';
-// import { Platform, StyleSheet } from 'react-native';
-// import "react-native-reanimated/lib/typescript/Animated";
-// import { HelloWave } from '@/components/hello-wave';
-// import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
-// import { ThemedView } from '@/components/themed-view';
-// import { Link } from 'expo-router';
-// import { View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Pressable, ScrollView, StyleSheet, TextInput, Text, TouchableOpacity, View } from 'react-native';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-// import { StyleSheet } from 'react-native';
+import Cards from '@/components/ui/cards';
+import { cardsData } from '@/data/cardsData';
+
 
 export default function HomeScreen() {
   const [selected, setSelected] = useState("Starter");
@@ -78,6 +72,11 @@ export default function HomeScreen() {
           </TouchableOpacity> */}
           
         </View>
+        {cardsData.map((item) => (
+          <Cards key={item.id} item={item} />
+
+        ))
+      }
         
       </ScrollView>
       </SafeAreaView>
